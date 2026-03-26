@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>NovaSpace | Future-Ready Digital Ecosystem</title>
+  <!-- Google Fonts + simple reset & smooth scroll -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafcff;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      color: #111827;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* custom font import (Inter) */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap');
+
+    /* container utility */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header & nav */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #0B2B5E, #1E4A76);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1f2937;
+      transition: color 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      border: 1.5px solid #2563eb;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #2563eb;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .btn-outline-light:hover {
+      background: #2563eb10;
+      border-color: #1e4a8a;
+    }
+
+    /* hero section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      padding: 60px 0 80px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-badge {
+      background: #e0e7ff;
+      color: #1e40af;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #0b2b5e, #2563eb, #3b82f6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: #4b5563;
+      max-width: 540px;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: #1e3a8a;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.1s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid #cbd5e1;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: #2563eb;
+      background: #f8fafc;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      width: 480px;
+      filter: drop-shadow(0 20px 25px -5px rgba(0,0,0,0.1));
+    }
+
+    /* features grid */
+    .features {
+      padding: 80px 0;
+      background: #ffffff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      text-align: center;
+      color: #4b5563;
+      max-width: 640px;
+      margin: 0 auto 56px auto;
+      font-size: 1.1rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .card {
+      background: #f9fafb;
+      border-radius: 32px;
+      padding: 32px 24px;
+      transition: all 0.25s ease;
+      border: 1px solid #eef2f6;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #cbdff2;
+      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.08);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #4b5563;
+    }
+
+    /* stats section */
+    .stats {
+      background: linear-gradient(120deg, #f1f5f9, #ffffff);
+      padding: 70px 0;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 56px;
+      margin-top: 32px;
+    }
+
+    .stat-item h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #1e3a8a;
+    }
+
+    .stat-item p {
+      font-weight: 500;
+      color: #334155;
+    }
+
+    /* cta section */
+    .cta {
+      background: #0b2b5e;
+      margin: 60px 32px;
+      border-radius: 48px;
+      padding: 64px 48px;
+      text-align: center;
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .cta p {
+      max-width: 560px;
+      margin: 0 auto 32px auto;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .cta-btn {
+      background: white;
+      color: #0b2b5e;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 48px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* footer */
+    footer {
+      padding: 48px 0 32px;
+      border-top: 1px solid #e2e8f0;
+      margin-top: 40px;
+      background: #fefefe;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .footer-brand p {
+      color: #4b5563;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .footer-col h4 {
+      font-weight: 600;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #5b6e8c;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .footer-col a:hover {
+      color: #2563eb;
+    }
+
+    .copyright {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #eef2f6;
+      color: #6c757d;
+      font-size: 0.8rem;
+    }
+
+    /* demo modal (lightweight) */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-card {
+      background: white;
+      max-width: 450px;
+      width: 90%;
+      border-radius: 32px;
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: 0 25px 40px rgba(0,0,0,0.2);
+      animation: fadeSlideUp 0.2s ease;
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .modal-card p {
+      color: #2d3a4b;
+      margin-bottom: 24px;
+    }
+
+    .modal-card input {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 60px;
+      border: 1px solid #cfdfed;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .modal-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .modal-buttons button {
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .close-modal-btn {
+      background: #eef2ff;
+      border: none;
+      color: #1e293b;
+    }
+
+    .submit-demo {
+      background: #1e3a8a;
+      border: none;
+      color: white;
+    }
+
+    /* responsiveness */
+    @media (max-width: 780px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 30px 0;
+      }
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .cta {
+        margin: 40px 16px;
+        padding: 48px 24px;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">✦ NovaSpace</div>
+      <div class="nav-links">
+        <a href="#">Platform</a>
+        <a href="#">Solutions</a>
+        <a href="#">Resources</a>
+        <a href="#">Company</a>
+      </div>
+      <button class="btn-outline-light" id="demoNavBtn">Request demo</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- hero -->
+  <div class="container">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">⚡ AI-native cloud platform</div>
+        <h1>Build tomorrow's<br>digital frontiers</h1>
+        <p>NovaSpace unifies edge computing, real-time analytics, and collaborative AI. Deploy smarter, scale faster, and lead innovation without limits.</p>
+        <div class="hero-buttons">
+          <button class="btn-primary" id="heroDemoBtn">Start free trial →</button>
+          <button class="btn-secondary">Watch demo</button>
+        </div>
+        <div style="margin-top: 32px; display: flex; gap: 16px; font-size: 0.85rem; color: #5b6e8c;">
+          <span>✅ No credit card</span>
+          <span>🚀 14-day trial</span>
+          <span>💡 24/7 support</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://placehold.co/600x500/eef2ff/2563eb?text=✦+NovaSpace+✦&font=montserrat" alt="NovaSpace abstract visualization" style="border-radius: 32px;">
+      </div>
+    </div>
+  </div>
+
+  <!-- features section -->
+  <div class="features">
+    <div class="container">
+      <div class="section-title">Engineered for the next wave</div>
+      <div class="section-desc">Everything you need to build intelligent products — from serverless functions to vector databases.</div>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🧠</div>
+          <h3>AI Orchestration</h3>
+          <p>Deploy custom LLMs, fine-tune models, and manage prompts with built-in observability.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌐</div>
+          <h3>Global Edge Network</h3>
+          <p>Low-latency compute at 300+ edge locations. Real-time sync and data replication.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔐</div>
+          <h3>Zero-trust security</h3>
+          <p>End-to-end encryption, private VPC, and automated compliance (SOC2, GDPR).</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚙️</div>
+          <h3>Unified developer hub</h3>
+          <p>CLI, SDKs, and visual workflows — ship from prototype to production in hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- stats / social proof -->
+  <div class="stats">
+    <div class="container">
+      <div class="section-title" style="font-size: 1.9rem;">Trusted by innovators</div>
+      <div class="stats-grid">
+        <div class="stat-item"><h2>99.99%</h2><p>uptime SLA</p></div>
+        <div class="stat-item"><h2>15k+</h2><p>active teams</p></div>
+        <div class="stat-item"><h2>< 50ms</h2><p>edge latency</p></div>
+        <div class="stat-item"><h2>180+</h2><p>countries served</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- call to action banner -->
+  <div class="cta">
+    <h2>Ready to launch without limits?</h2>
+    <p>Join thousands of developers and enterprises shaping the future with NovaSpace.</p>
+    <button class="cta-btn" id="ctaModalBtn">Get early access →</button>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo" style="font-size: 24px;">✦ NovaSpace</div>
+        <p>Building the infrastructure for<br>autonomous digital ecosystems.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#">Edge functions</a>
+          <a href="#">AI models</a>
+          <a href="#">Storage</a>
+          <a href="#">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Developers</h4>
+          <a href="#">Documentation</a>
+          <a href="#">API reference</a>
+          <a href="#">Community</a>
+          <a href="#">Status</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 NovaSpace, Inc. — Redefining cloud intelligence. All trademarks belong to their respective owners.
+    </div>
+  </div>
+</footer>
+
+<!-- Modal (lightweight interactive demo) -->
+<div id="demoModal" class="modal">
+  <div class="modal-card">
+    <h3>✨ Request early access</h3>
+    <p>Be among the first to explore NovaSpace's next-gen platform.</p>
+    <input type="email" id="modalEmail" placeholder="Your work email" autocomplete="email">
+    <div class="modal-buttons">
+      <button class="close-modal-btn" id="closeModalBtn">Cancel</button>
+      <button class="submit-demo" id="submitDemoBtn">Notify me</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // interactive modal logic with smooth user feedback
+  const modal = document.getElementById('demoModal');
+  const openModalBtns = document.querySelectorAll('#demoNavBtn, #heroDemoBtn, #ctaModalBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const submitDemo = document.getElementById('submitDemoBtn');
+  const emailInput = document.getElementById('modalEmail');
+
+  function openModal() {
+    modal.style.display = 'flex';
+    emailInput.value = '';
+    emailInput.focus();
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  openModalBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  closeModalBtn.addEventListener('click', closeModal);
+
+  // optional: clicking outside modal background closes it
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // handle demo subscription
+  submitDemo.addEventListener('click', () => {
+    const email = emailInput.value.trim();
+    if (!email) {
+      alert('✨ Please enter an email address to stay updated.');
+      return;
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+      alert('📧 Please enter a valid email (e.g., name@example.com).');
+      return;
+    }
+    // success feedback (simulated)
+    alert(`🎉 Thanks! We'll notify ${email} about NovaSpace early access.`);
+    closeModal();
+    // optional: you could send to console for fun
+    console.log(`Demo request from: ${email}`);
+  });
+
+  // additional micro-interactions: watch demo button shows a friendly toast-like alert (just for demonstration)
+  const watchDemoBtn = document.querySelector('.btn-secondary');
+  if (watchDemoBtn) {
+    watchDemoBtn.addEventListener('click', () => {
+      alert("🚀 Walkthrough video coming soon! Meanwhile, explore our interactive tour — or request a demo above.");
+    });
+  }
+
+  // hover card effect already in css, but add console log optional: interactive vibe
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      // subtle user engagement without intrusive modal
+      const title = card.querySelector('h3')?.innerText || 'feature';
+      console.log(`User explored: ${title}`);
+    });
+  });
+</script>
+</body>
+</html>
